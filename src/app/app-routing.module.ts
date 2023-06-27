@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'rapportino/list', component:RapportinoListComponent},
   { path: 'rapportino/insert', component:RapportinoInsertComponent},
   { path: 'rapportino/edit/:id', component:RapportinoEditComponent},
-  { path: 'rapportino/delete', component:RapportinoDeleteComponent},
+  { path: 'rapportino/delete/:id', component:RapportinoDeleteComponent},
   { path: 'rapportino/show/:id', component:RapportinoShowComponent},
 
 

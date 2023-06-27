@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 import { Rapportino } from 'src/app/model/rapportino';
-import { Risorsa } from 'src/app/model/risorsa';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { Risorsa } from 'src/app/model/risorsa';
 export class RapportinoService {
 
   private rapportinoUrl = 'http://localhost:8080/coge/api/rapportino';
-  private risorsaUrl = 'http://localhost:8080/coge/api/risorsa';
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
   };
@@ -33,12 +32,7 @@ export class RapportinoService {
       catchError(this.handleError<Rapportino>('addHero'))
     );
   }
-  getRisorsa(id: number): Observable<Risorsa> {
-    const url = `${this.risorsaUrl}/${id}`;
-    return this.http.get<Risorsa>(url).pipe(
-      catchError(this.handleError<Risorsa>(`getRisorsa id=${id}`))
-    );
-  }
+
 
   getRapportino(id: number): Observable<Rapportino> {
     const url = `${this.rapportinoUrl}/${id}`;
@@ -46,17 +40,15 @@ export class RapportinoService {
      // tap(_ => this.log(`fetched atleta id=${id}`)),
       catchError(this.handleError<Rapportino>(`getRapportino id=${id}`))
     );
-    
   }
 
 
 
     /** PUT: update the hero on the server */
     updateRapportino(rapportino: Rapportino): Observable<any> {
-      const url = `${this.rapportinoUrl}/${rapportino.id}`;
-      return this.http.put(url, rapportino, this.httpOptions).pipe(
-       
-        catchError(this.handleError<any>(`getRapportino id=${rapportino.id}`))
+      return this.http.put(this.rapportinoUrl, rapportino, this.httpOptions).pipe(
+       // tap(_ => this.log(`updated atleta id=${atleta.id}`)),
+        catchError(this.handleError<any>('updateRapportino'))
       );
     }
 
@@ -95,7 +87,6 @@ export class RapportinoService {
       return of(result as T);
     };
   }
-
 
 
 }
