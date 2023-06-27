@@ -53,9 +53,10 @@ export class RapportinoService {
 
     /** PUT: update the hero on the server */
     updateRapportino(rapportino: Rapportino): Observable<any> {
-      return this.http.put(this.rapportinoUrl, rapportino, this.httpOptions).pipe(
-       // tap(_ => this.log(`updated atleta id=${atleta.id}`)),
-        catchError(this.handleError<any>('updateRapportino'))
+      const url = `${this.rapportinoUrl}/${rapportino.id}`;
+      return this.http.put(url, rapportino, this.httpOptions).pipe(
+       
+        catchError(this.handleError<any>(`getRapportino id=${rapportino.id}`))
       );
     }
 
