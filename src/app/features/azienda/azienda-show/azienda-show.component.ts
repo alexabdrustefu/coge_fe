@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Azienda } from 'src/app/model/azienda';
+import { Commessa } from 'src/app/model/commessa';
 import { AziendaService } from 'src/app/service/azienda/azienda.service';
 
 @Component({
@@ -10,14 +11,18 @@ import { AziendaService } from 'src/app/service/azienda/azienda.service';
 })
 export class AziendaShowComponent implements OnInit{
   constructor(private aziendaService:AziendaService,private route: ActivatedRoute,private router: Router) {}
-
+  listaCommesse?:Commessa[]
   aziendaDetail?:Azienda;
 
 
-    ngOnInit(): void {
-      this.aziendaService.getAzienda(Number(this.route.snapshot.paramMap.get('id')))
-      .subscribe(azienda => this.aziendaDetail = azienda);
-    }
+  ngOnInit(): void {
+    this.aziendaService.getAzienda(Number(this.route.snapshot.paramMap.get('id')))
+      .subscribe(azienda => {
+        this.aziendaDetail = azienda;
+        this.listaCommesse = this.aziendaDetail?.commesse;
+      });
+  }
+  
 
 
     onBack():void {

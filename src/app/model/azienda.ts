@@ -6,7 +6,7 @@ export class Azienda {
         public ragioneSociale?:string,
         public partitaIva?:string,
         public indirizzo?:string,
-        public commesse?: Commessa
+        public commesse?: Commessa[]
 
     ){}
 }

@@ -10,8 +10,7 @@ import { CommessaService } from 'src/app/service/commessa/commessa.service';
 })
 export class CommessaShowComponent implements OnInit {
   constructor(private commessaService:CommessaService,private route: ActivatedRoute, private router: Router ){}
-
-
+  
   commessaDetail?:Commessa;
 
   ngOnInit(): void {
