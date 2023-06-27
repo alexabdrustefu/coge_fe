@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Rapportino } from 'src/app/model/rapportino';
+import { Risorsa } from 'src/app/model/risorsa';
 import { RapportinoService } from 'src/app/service/rapportino/rapportino.service';
+import { RisorsaService } from 'src/app/service/risorsa/risorsa.service';
 
 @Component({
   selector: 'coge-rapportino-edit',
@@ -10,13 +12,17 @@ import { RapportinoService } from 'src/app/service/rapportino/rapportino.service
   styleUrls: ['./rapportino-edit.component.css']
 })
 export class RapportinoEditComponent implements OnInit {
-
-  constructor(private rapportinoService: RapportinoService, private route: ActivatedRoute, private router: Router){ }
+  rapportino: Rapportino = new Rapportino();
+  listaRisorse?:Risorsa[];
+  constructor(private rapportinoService: RapportinoService, private route: ActivatedRoute, private router: Router,private risorsaService: RisorsaService){ }
 
   ngOnInit(): void {
     this.rapportinoService.getRapportino(Number(this.route.snapshot.paramMap.get('id')))
-    .subscribe(rapportino => this.rapportinoEdit = rapportino);
+      .subscribe(rapportino => {
+        this.rapportinoEdit = rapportino;
+      });
   }
+  
 
   onBack(): void {
     this.router.navigate(['/rapportino/list']);
