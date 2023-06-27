@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-warning" aria-label="Eighth navbar example">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Azienda</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item"  [routerLink]="['/azienda/insert']">Inserisci Azienda</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/azienda/listacostodesc']">Lista Azienda Con Costo Discendente</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/risorsa/riepilogoconcommesse']">Riepilogo Risorse Con Numero Commesse</a></li>
+            </ul> 
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Risorse</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item"  [routerLink]="['/risorsa/list']">Lista Risorsa</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/risorsa/insert']">Inserisci Risorsa</a></li>
+            </ul> 
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Commesse</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item"  [routerLink]="['/commessa/list']">Lista Commesse</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/commessa/insert']">Inserisci Commessa</a></li>
+            </ul> 
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false">Rapportino</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item"  [routerLink]="['/rapportino/list']">Lista Rapportini</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/rapportino/insert']">Inserisci Rapportino</a></li>
+            </ul> 
+          </li>
+          
+          
+        </ul>
+      </div>
+      <div class="col-md-3 text-end">
+        <p class="navbar-text">Utente:
+       <a href="#">Logout</a></p>
+      </div>
+    </div>
+  </nav>
